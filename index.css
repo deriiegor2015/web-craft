@@ -1,0 +1,357 @@
+:root {
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+  color: white;
+  font-size: 14px;
+
+  --background-bright: #273338;
+  --background: #323e44;
+  --progress-stripe: rgb(60, 79, 87);
+  --text-bright: #7399a8;
+
+  --header-background: var(--background-bright);
+  --container-width: 608px;
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  :root {
+    --container-width: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-bright);
+}
+
+a .button {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 517px;
+  background-color: var(--background);
+  position: absolute;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--header-background);
+  background-image: url("../image/icon-large.png");
+  background-repeat: no-repeat;
+  background-size: 65px;
+  background-position-y: center;
+  background-position-x: 10px;
+  display: flex;
+}
+
+.appLabel {
+  color: white;
+  text-indent: 90px;
+  line-height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.appLabelSub {
+  color: var(--text-bright);
+  line-height: 65px;
+  font-size: 16px;
+  margin-left: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  .header {
+    background-image: none;
+  }
+
+  .appLabel {
+    text-indent: 10px;
+  }
+
+  .appLabelSub {
+    margin-left: 10px;
+  }
+}
+
+.container {
+  position: relative;
+  top: 90px;
+  bottom: 120px;
+  width: var(--container-width);
+  height: calc(100% - 210px);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.inputZip {
+  margin: 20px;
+}
+
+.inputZipLabel {
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background-color: #273338;
+  border-radius: 3px;
+}
+
+.inputLabel {
+}
+
+.inputLabel input {
+  display: none;
+}
+
+.inputGuidance {
+  margin: 10px 5px 0 5px;
+  color: var(--text-bright);
+}
+
+.progressContainer {
+  margin: 20px;
+}
+
+.progress {
+  background-color: #263238;
+  height: 38px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 38px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #191f22;
+}
+
+.progressBar[data-intermediate="false"] {
+  background-color: #191f22;
+}
+
+.progressBar[data-intermediate="true"] {
+  background-size: 60px 60px;
+  background-image: linear-gradient(
+    45deg,
+    #263238 25%,
+    transparent 25%,
+    transparent 50%,
+    #263238 50%,
+    #263238 75%,
+    transparent 75%,
+    transparent
+  );
+  animation: animateStripes 1s linear infinite;
+  background-color: #192124;
+}
+
+@keyframes animateStripes {
+  from {
+    background-position: 0 60px;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.progressBar[data-fullwidth="true"] {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.progressLabel {
+  position: absolute;
+  margin-left: 5px;
+  top: 0;
+  left: 0;
+  line-height: 36px;
+  color: var(--text-bright);
+  font-size: 15px;
+}
+
+.message {
+  height: 40px;
+  margin-top: 10px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.downloadMessage {
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.errorMessage {
+  color: rgb(202, 53, 105);
+  user-select: text;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background-color: var(--background-bright);
+}
+
+.footerContent {
+  margin: 10px;
+  font-size: 13px;
+  color: var(--text-bright);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerRow {
+  text-align: center;
+}
+
+.vFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.hFlex {
+  display: flex;
+}
+
+.roundButton {
+  border: solid 1px gray;
+  border-radius: 8px;
+  height: 38px;
+  min-height: 38px;
+  line-height: 38px;
+  cursor: pointer;
+  padding: 0 20px 0 20px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #273338;
+  text-decoration: none;
+  color: white;
+}
+
+.roundButton:hover {
+  background-color: #323e41;
+}
+
+.roundButton:active {
+  background-color: #4d5a60;
+}
+
+.roundButton[data-destructive="true"] {
+  background-color: #ff3b30;
+}
+
+.roundButton[data-destructive="true"]:hover {
+  background-color: #ff7272;
+}
+
+.roundButton[data-destructive="true"]:active {
+  background-color: #ff5757;
+}
+
+.modeSelectButton {
+  width: calc(var(--container-width) / 2);
+  margin: 10px;
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  .modeSelectButton {
+    width: 220px;
+  }
+}
+
+.unsupportedMessageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #273338c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unsupportedMessage {
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: #4d5a60;
+  padding: 20px;
+}
+
+.aboutContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #273338c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  width: 50%;
+  border-radius: 10px;
+  background-color: #192124;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-y: scroll;
+  color: var(--text-bright);
+  user-select: text;
+}
+
+.aboutHeader {
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+.aboutTitle {
+  color: white;
+}
